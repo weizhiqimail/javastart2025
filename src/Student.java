@@ -4,11 +4,16 @@ public class Student extends Human {
 
   public int age;
 
+
+  public Animal animal;
+
   public Student(int id, String name, int age) {
     super(id);
     this.name = name;
     this.age = age;
+    this.animal = new Animal(name + "的 dog");
   }
+
 
   public void setAge(int age) {
     this.age = age;

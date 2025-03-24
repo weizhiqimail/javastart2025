@@ -12,6 +12,7 @@ public class Main {
       System.out.println(stu1.id);
       System.out.println(stu1.name);
       System.out.println(stu1.age);
+      System.out.println(stu1.animal.getName());
 
       System.out.println("stu2 ------------------------");
       System.out.println(stu2.id);
