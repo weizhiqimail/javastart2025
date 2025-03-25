@@ -1,9 +1,10 @@
 import java.util.Scanner;
+import heritage.Worker;
 
 public class Main {
 
   public static void main(String[] args) {
-    generateStudentList();
+    oop();
   }
 
   public static void testClone()  {
@@ -105,6 +106,12 @@ public class Main {
   public static void printStudentInfo(Student stu) {
     System.out.println("id:" + stu.id + "\t" + "name:" + stu.name + "\t" + "age:" + stu.age);
 
+  }
+
+  public static void oop() {
+    Worker worker = new Worker("Merry");
+    worker.buyMachine();
+    System.out.println(worker.toString());
   }
 
 }
