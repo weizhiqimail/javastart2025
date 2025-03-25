@@ -21,7 +21,7 @@ public class AnonymousClassUse {
       }
     });
 
-    btn.addActionListener(e -> {
+    btn.addActionListener((ActionEvent e) -> {
       System.out.println("您点击了登录按钮2");
     });
 
