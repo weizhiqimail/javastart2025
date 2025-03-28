@@ -1,7 +1,7 @@
 package org.dazi.javaspringboot.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Data
