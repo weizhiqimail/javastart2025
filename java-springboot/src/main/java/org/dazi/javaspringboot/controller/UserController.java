@@ -25,9 +25,23 @@ public class UserController {
   // 最基本的使用 OOP 形式创建对象
 //  public UserService userService = new UserServiceImpl();
 
-  @Autowired
-  private UserService userService;
+  // 方式1：属性注入
+//  @Autowired
+//  private UserService userService;
 
+  // 方式2：构造器注入
+//  private final UserService userService;
+//  @Autowired
+//  public UserController(UserService userService) {
+//    this.userService = userService;
+//  }
+
+  // 方式3：setter 注入
+  private UserService userService;
+  @Autowired
+  public void setUserService(UserService userService) {
+    this.userService = userService;
+  }
 
   @RequestMapping("/getUserName")
   public String queryUserName(String name) {

@@ -6,6 +6,7 @@ import org.dazi.javaspringboot.dao.impl.UserDaoImpl;
 import org.dazi.javaspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,13 +16,15 @@ import java.util.List;
 /**
  * @author wei
  */
-@Component // 将当前类交给 IOC 容器处理
+//@Component // 将当前类交给 IOC 容器处理
+@Service("UserServiceImpl class")
 public class UserServiceImpl implements UserService {
   // 最基本的使用 OOP 形式创建对象
 //  private final UserDao userDao = new UserDaoImpl();
 
   // 使用 Spring 的 DI 方式创建对象
-  @Autowired // 应用程序运行时，会自动的查询该类型的 bean 对象，并赋值给该成员变量
+  // 应用程序运行时，会自动的查询该类型的 bean 对象，并赋值给该成员变量
+  @Autowired
   private UserDao userDao;
 
 
