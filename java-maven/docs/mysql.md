@@ -1,3 +1,10 @@
+# sql
+
+- DDL(Data Definition Language) 数据定义语言，用来定义数据库对象（数据库、数据表、字段）。
+- DML(Data Manipulation Language) 数据操作语言，用来对数据进行增、删、改等操作。不包括查询操作。
+- DQL(Data Query Language) 数据查询语言，用来查询数据。
+- DCL(Data Control Language) 数据控制语言，用来控制数据的访问权限。
+
 # mysql 操作
 
 ## 基本操作
