@@ -1,10 +1,10 @@
-package org.dazi.javaspringboot.Controller;
+package org.dazi.javaspringboot.controller;
 
 import cn.hutool.core.io.IoUtil;
 import org.dazi.javaspringboot.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.dazi.javaspringboot.service.UserService;
+import org.dazi.javaspringboot.service.impl.UserServiceImpl;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -15,8 +15,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author wei
+ */
 @RestController // @ResponseBody
 public class UserController {
+
+  public UserService userService = new UserServiceImpl();
+
 
   @RequestMapping("/getUserName")
   public String queryUserName(String name) {
@@ -26,6 +32,14 @@ public class UserController {
 
   @GetMapping("/getUserList")
   public List<User> queryUserList() throws FileNotFoundException {
+    // 调用 Service 获取数据
+    List<User> list = userService.findUserList();
+    // 响应数据
+    return list;
+  }
+
+  @GetMapping("/getUserListBackup")
+  public List<User> queryUserListBackup() throws FileNotFoundException {
     System.out.println("queryUserList: ");
 
     InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("user.txt");
@@ -39,5 +53,4 @@ public class UserController {
       return new User(id, name, dateTime);
     }).toList();
   }
-
 }
