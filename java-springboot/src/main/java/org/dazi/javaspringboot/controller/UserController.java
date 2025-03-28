@@ -4,6 +4,7 @@ import cn.hutool.core.io.IoUtil;
 import org.dazi.javaspringboot.User;
 import org.dazi.javaspringboot.service.UserService;
 import org.dazi.javaspringboot.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
@@ -21,7 +22,11 @@ import java.util.List;
 @RestController // @ResponseBody
 public class UserController {
 
-  public UserService userService = new UserServiceImpl();
+  // 最基本的使用 OOP 形式创建对象
+//  public UserService userService = new UserServiceImpl();
+
+  @Autowired
+  private UserService userService;
 
 
   @RequestMapping("/getUserName")
