@@ -1,7 +1,6 @@
 package org.dazi.javaspringboot.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.dazi.javaspringboot.pojo.User;
 
 import java.util.List;
@@ -11,8 +10,35 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-  // 查询所有用户信息
-  @Select("SELECT * FROM hero")
+  // 使用注解的方式来编写 SQL 语句
+//  @Select("SELECT * FROM hero")
+//  public List<User> findAllUsers();
+//
+//  @Delete("delete from hero where id = #{id}")
+//  public int deleteUserById(int id);
+//
+//  @Update("update hero set age = #{age} where id = #{id}")
+//  public int updateUserById(@Param("id") int id, @Param("age") int age);
+//
+//  @Insert("insert into hero (name, age) values (#{name}, #{age})")
+//  public int insertUser(User user);
+//
+//  @Insert("insert into hero(name, age, gender, phone, email) values (#{name}, #{age}, #{gender}, #{phone}, #{email})")
+//  public int insertUserByUser(User user);
+
+  // 使用 xml 文件的方式来编写 SQL 语句
   public List<User> findAllUsers();
+
+  @Delete("delete from hero where id = #{id}")
+  public int deleteUserById(int id);
+
+  @Update("update hero set age = #{age} where id = #{id}")
+  public int updateUserById(@Param("id") int id, @Param("age") int age);
+
+  @Insert("insert into hero (name, age) values (#{name}, #{age})")
+  public int insertUser(User user);
+
+  @Insert("insert into hero(name, age, gender, phone, email) values (#{name}, #{age}, #{gender}, #{phone}, #{email})")
+  public int insertUserByUser(User user);
 
 }
