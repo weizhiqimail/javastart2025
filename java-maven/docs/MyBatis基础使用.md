@@ -68,3 +68,7 @@ public interface DeptMapper {
 }
 ```
 
+## 简单http参数获取
+- 使用 HttpServletRequest 获取请求参数。
+- 使用 @RequestParam 注解获取请求参数，使用后参数默认为必传。
+- 参数名与形参变量名一致。
