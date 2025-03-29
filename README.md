@@ -8,6 +8,7 @@
 ## SpringBoot
 - [SpringBoot中文文档](https://springdoc.cn/spring-boot/)
 - [控制反转、依赖注入](./java-basic/src/iocdi/README.md)
+- [Controller、Service、Mapper结构](./java-maven/docs/MVC三层结构.md)
 
 ## MySQL
 - [MySQL菜鸟教程](https://www.runoob.com/mysql/mysql-tutorial.html)
@@ -18,4 +19,4 @@
 
 ## MyBatis
 - [MyBatis中文文档](https://mybatis.org/mybatis-3/zh_CN/index.html)
-- [MyBatis基础知识](./java-springboot/docs/MyBatis基础使用.md)
+- [MyBatis基础知识](./java-maven/docs/MyBatis基础使用.md)

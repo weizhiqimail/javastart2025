@@ -7,11 +7,14 @@
         <option value="$PROJECT_DIR$/java-maven/pom.xml" />
         <option value="$PROJECT_DIR$/java-springboot/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias/pom.xml" />
+        <option value="$PROJECT_DIR$/tliasjava21/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/springboot-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias/pom.xml" />
       </set>
     </option>
   </component>
