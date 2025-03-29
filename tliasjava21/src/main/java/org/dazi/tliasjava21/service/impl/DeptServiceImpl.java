@@ -23,4 +23,20 @@ public class DeptServiceImpl implements DeptService {
   public void deleteDept(int deptId) {
     deptMapper.deleteDept(deptId);
   }
+
+  @Override
+  public Dept addDept(Dept dept) {
+    deptMapper.addDept(dept);
+    return dept;
+  }
+
+  @Override
+  public void updateDept(String name,Integer deptId) {
+    deptMapper.updateDept(name, deptId);
+  }
+
+  @Override
+  public Dept getDept(Integer deptId) {
+    return deptMapper.getDept(deptId);
+  }
 }

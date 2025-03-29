@@ -6,7 +6,13 @@ import java.util.List;
 
 public interface DeptService {
 
-  public List<Dept> getDeptList();
+  List<Dept> getDeptList();
 
-  public void deleteDept(int deptId);
+  void deleteDept(int deptId);
+
+  Dept addDept(Dept dept);
+
+  void updateDept(String name, Integer deptId);
+
+  Dept getDept(Integer deptId);
 }

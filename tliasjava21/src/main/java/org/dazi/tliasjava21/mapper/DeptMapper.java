@@ -23,4 +23,13 @@ public interface DeptMapper {
 
   @Select("delete from dept where id = #{deptId}")
   public void deleteDept(int deptId);
+
+  @Select("insert into dept (name) values (#{name})")
+  public void addDept(Dept dept);
+
+  @Select("update dept set name = #{name} where id = #{deptId}")
+  public void updateDept(String name, Integer deptId);
+
+  @Select("select id, name, create_time, update_time from dept where id = #{deptId}")
+  Dept getDept(Integer deptId);
 }
