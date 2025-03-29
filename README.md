@@ -15,6 +15,7 @@
 - [MySQL菜鸟教程](https://www.runoob.com/mysql/mysql-tutorial.html)
 - [MySQL基础知识](./java-maven/docs/MySQL基础知识.md)
 - [MySQL使用规范](./java-maven/docs/MySQL使用规范.md)
+- [MySQL多表查询](./java-maven/docs/MySQL多表查询.md)
 - [MySQL基本操作](./java-maven/docs/MySQL基本操作.sql)
 - [MySQL多表操作](./java-maven/docs/MySQL多表操作.sql)
 
