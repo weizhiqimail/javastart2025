@@ -41,11 +41,11 @@ public class EmpQueryDto {
   @Null()
   public Integer deptId;
 
-  @Schema(description = "分页大小", defaultValue = "10")
+  @Schema(description = "分页大小")
   @Null()
-  public Integer pageSize = 10;
+  public Integer pageSize;
 
-  @Schema(description = "当前页", defaultValue = "1")
+  @Schema(description = "当前页")
   @Null()
-  public Integer pageNum = 1;
+  public Integer pageNum;
 }
