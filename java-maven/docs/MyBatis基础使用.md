@@ -48,5 +48,23 @@
 </mapper>
 ```
 
+## 数据封装
+- 手动结果映射：通过 `@Result` 及 `@Results` 进行手动结果映射。
+- 起别名：在SQL中，对不一样的列名起别名，别名与实体类属性名一致。
+- 开启驼峰命名配置：如果字段名与属性名符合驼峰命名规则，mybatis 会自动进行映射。
 
+```java
+@Mapper
+public interface DeptMapper {
+
+  // 方式1：手动结果映射
+  @Results({
+          @Result(column = "create_time", property = "createTime"),
+          @Result(column = "update_time", property = "updateTime"),
+  })
+  // 方式2：起别名
+  @Select("select id, name, create_time createTime, update_time updateTime from dept")
+  public List<Dept> getDeptList();
+}
+```
 

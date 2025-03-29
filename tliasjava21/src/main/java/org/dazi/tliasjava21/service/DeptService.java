@@ -7,4 +7,6 @@ import java.util.List;
 public interface DeptService {
 
   public List<Dept> getDeptList();
+
+  public void deleteDept(int deptId);
 }
