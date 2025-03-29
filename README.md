@@ -9,6 +9,7 @@
 - [SpringBoot中文文档](https://springdoc.cn/spring-boot/)
 - [控制反转、依赖注入](./java-basic/src/iocdi/README.md)
 - [Controller、Service、Mapper结构](./java-maven/docs/MVC三层结构.md)
+- [Springboot扩展工具](./java-maven/docs/Springboot扩展工具.md)
 
 ## MySQL
 - [MySQL菜鸟教程](https://www.runoob.com/mysql/mysql-tutorial.html)

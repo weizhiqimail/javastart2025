@@ -1,5 +1,7 @@
 package org.dazi.tliasjava21.service.impl;
 
+import org.dazi.tliasjava21.dao.DeptCreateDto;
+import org.dazi.tliasjava21.dao.DeptUpdateDto;
 import org.dazi.tliasjava21.mapper.DeptMapper;
 import org.dazi.tliasjava21.pojo.Dept;
 import org.dazi.tliasjava21.service.DeptService;
@@ -25,14 +27,13 @@ public class DeptServiceImpl implements DeptService {
   }
 
   @Override
-  public Dept addDept(Dept dept) {
+  public void addDept(DeptCreateDto dept) {
     deptMapper.addDept(dept);
-    return dept;
   }
 
   @Override
-  public void updateDept(String name,Integer deptId) {
-    deptMapper.updateDept(name, deptId);
+  public void updateDept(DeptUpdateDto dept, Integer deptId) {
+    deptMapper.updateDept(dept, deptId);
   }
 
   @Override

@@ -1,9 +1,8 @@
 package org.dazi.tliasjava21.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.dazi.tliasjava21.dao.DeptCreateDto;
+import org.dazi.tliasjava21.dao.DeptUpdateDto;
 import org.dazi.tliasjava21.pojo.Dept;
 
 import java.util.List;
@@ -21,14 +20,14 @@ public interface DeptMapper {
   @Select("select id, name, create_time, update_time from dept")
   public List<Dept> getDeptList();
 
-  @Select("delete from dept where id = #{deptId}")
+  @Delete("delete from dept where id = #{deptId}")
   public void deleteDept(int deptId);
 
-  @Select("insert into dept (name) values (#{name})")
-  public void addDept(Dept dept);
+  @Insert("insert into dept (name) values (#{name})")
+  public void addDept(DeptCreateDto dept);
 
-  @Select("update dept set name = #{name} where id = #{deptId}")
-  public void updateDept(String name, Integer deptId);
+  @Update("update dept set name = #{dept.name} where id = #{deptId}")
+  public void updateDept(@Param("dept") DeptUpdateDto dept, @Param("deptId") Integer deptId);
 
   @Select("select id, name, create_time, update_time from dept where id = #{deptId}")
   Dept getDept(Integer deptId);

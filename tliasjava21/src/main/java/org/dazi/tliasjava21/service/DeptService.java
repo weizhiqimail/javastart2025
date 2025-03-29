@@ -1,5 +1,7 @@
 package org.dazi.tliasjava21.service;
 
+import org.dazi.tliasjava21.dao.DeptCreateDto;
+import org.dazi.tliasjava21.dao.DeptUpdateDto;
 import org.dazi.tliasjava21.pojo.Dept;
 
 import java.util.List;
@@ -10,9 +12,9 @@ public interface DeptService {
 
   void deleteDept(int deptId);
 
-  Dept addDept(Dept dept);
+  void addDept(DeptCreateDto dept);
 
-  void updateDept(String name, Integer deptId);
+  void updateDept(DeptUpdateDto dept, Integer deptId);
 
   Dept getDept(Integer deptId);
 }
