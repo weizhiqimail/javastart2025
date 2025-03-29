@@ -9,9 +9,9 @@
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <FileNamePattern>D:/program/javastart2025/tlias-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <FileNamePattern>D:/program/javastart2025/logs/tlias-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
             <MaxHistory>30</MaxHistory>
-            <maxFileSize>10MB</maxFileSize>
+            <maxFileSize>4MB</maxFileSize>
         </rollingPolicy>
 
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">

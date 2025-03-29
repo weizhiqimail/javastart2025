@@ -16,6 +16,6 @@ public interface EmpMapper {
 //  @Select("SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id ORDER BY e.entry_date DESC LIMIT #{offset}, #{pageSize}")
 //   List<Emp> getEmpList(int offset, int pageSize);
 
-  @Select("SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id ORDER BY e.entry_date DESC")
+  //   @Select("SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id ORDER BY e.entry_date DESC")
   List<Emp> getEmpList();
 }
