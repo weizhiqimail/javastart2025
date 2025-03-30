@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>upload</title>
+</head>
+<body>
+<h3>上传到本地</h3>
+<form action="/emps/uploadAvatarToLocal" method="post" enctype="multipart/form-data">
+  <label>
+    username:
+    <input type="text" name="username">
+  </label>
+  <br>
+  <label>
+    avatar:
+    <input type="file" name="file">
+  </label>
+  <br>
+  <button type="submit">submit</button>
+</form>
+
+<hr>
+<hr>
+
+<h3>上传到OSS</h3>
+<form action="/emps/uploadAvatarToOSS" method="post" enctype="multipart/form-data">
+  <label>
+    username:
+    <input type="text" name="username">
+  </label>
+  <br>
+  <label>
+    avatar:
+    <input type="file" name="file">
+  </label>
+  <br>
+  <button type="submit">submit</button>
+</form>
+</body>
+</html>
