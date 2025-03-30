@@ -332,6 +332,21 @@ VALUES (50, 'feiyi01', 'wenwei', '费祎', 1, '12345670050', '文官', 7400.00, 
         '253-01-01 14:00:00');
 ```
 
+## expr 表
+
+```mysql
+CREATE TABLE IF NOT EXISTS expr
+(
+    id           INT AUTO_INCREMENT PRIMARY KEY COMMENT '招式的唯一标识，自增主键',
+    emp_id       INT          NOT NULL COMMENT '关联emp表的 id',
+    company_name VARCHAR(100) NOT NULL COMMENT '公司名称，最大长度为 100 个字符',
+    job          VARCHAR(100) NOT NULL COMMENT '职位名称，最大长度为 100 个字符',
+    start_date   DATE         NOT NULL COMMENT '开始日期',
+    end_date     DATE         NOT NULL COMMENT '结束日期'
+) COMMENT '工作经历' ENGINE = InnoDB
+                     DEFAULT CHARSET = utf8mb4;
+
+```
 
 
 

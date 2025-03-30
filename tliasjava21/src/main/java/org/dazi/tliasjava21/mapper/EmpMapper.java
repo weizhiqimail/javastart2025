@@ -2,6 +2,8 @@ package org.dazi.tliasjava21.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.dazi.tliasjava21.dao.EmpQueryDto;
+import org.dazi.tliasjava21.dao.EmpWithDeptAndExpr;
 import org.dazi.tliasjava21.pojo.Emp;
 
 import java.util.List;
@@ -17,5 +19,5 @@ public interface EmpMapper {
 //   List<Emp> getEmpList(int offset, int pageSize);
 
   //   @Select("SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id ORDER BY e.entry_date DESC")
-  List<Emp> getEmpList();
+  List<EmpWithDeptAndExpr> getEmpList(EmpQueryDto empQueryDto);
 }

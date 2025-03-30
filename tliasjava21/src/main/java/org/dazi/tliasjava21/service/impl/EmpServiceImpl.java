@@ -2,7 +2,9 @@ package org.dazi.tliasjava21.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.dazi.tliasjava21.dao.EmpQueryDto;
+import org.dazi.tliasjava21.dao.EmpWithDeptAndExpr;
 import org.dazi.tliasjava21.mapper.EmpMapper;
 import org.dazi.tliasjava21.pojo.Emp;
 import org.dazi.tliasjava21.pojo.PageResult;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class EmpServiceImpl implements EmpService {
 
@@ -30,19 +33,18 @@ public class EmpServiceImpl implements EmpService {
 
   //    基于 PageHelper 分页
   @Override
-  public PageResult<Emp> getEmpList(EmpQueryDto empQueryDto) {
+  public PageResult<EmpWithDeptAndExpr> getEmpList(EmpQueryDto empQueryDto) {
     int pageSize = empQueryDto.pageSize != null ? empQueryDto.pageSize : 10;
     int pageNum = empQueryDto.pageNum != null ? empQueryDto.pageNum : 1;
-    System.out.println("pageNum: " + pageNum);
-    System.out.println("pageSize: " + pageSize);
+    log.info("empQueryDto = {}", empQueryDto.toString());
 
     // 分页参数
     PageHelper.startPage(pageNum, pageSize);
     // 执行查询
-    List<Emp> empList = empMapper.getEmpList();
+    List<EmpWithDeptAndExpr> empList = empMapper.getEmpList(empQueryDto);
     // 解析结果
-    Page<Emp> page = (Page<Emp>) empList;
+    Page<EmpWithDeptAndExpr> page = (Page<EmpWithDeptAndExpr>) empList;
 
-    return new PageResult<Emp>(page.getTotal(), page.getResult());
+    return new PageResult<EmpWithDeptAndExpr>(page.getTotal(), page.getResult());
   }
 }
