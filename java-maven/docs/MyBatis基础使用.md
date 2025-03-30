@@ -68,7 +68,16 @@ public interface DeptMapper {
 }
 ```
 
-## 简单http参数获取
-- 使用 HttpServletRequest 获取请求参数。
-- 使用 @RequestParam 注解获取请求参数，使用后参数默认为必传。
-- 参数名与形参变量名一致。
+
+## xml 数据封装
+- 简单的数据结构，使用 `returnType="定义的POJO模型"`。
+- 复杂的数据结构，使用 `returnMap="自定义的Map模型"`。
+  - `<select></select>` 是查询时的 SQL 语句，定了对应的列名。
+  - `<returnMap></returnMap>` 是模型的最外层
+  - `<id></id>` 是对应的 id 主键
+  - `<result></result>` 是对应的列名，里边的 column 是对应的列名，property 是对应的模型的属性名。
+  - `<collection></collection>` 是对应的集合，
+    - column 是对应的列名
+    - property 是对应的模型的属性名
+    - ofType 是对应的POJO模型
+- set 标签，会自动生成 set 关键字，自动删除更新字段后的多余的逗号
