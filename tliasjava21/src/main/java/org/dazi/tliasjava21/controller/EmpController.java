@@ -30,8 +30,8 @@ public class EmpController {
   @PostMapping
   public Result getEmpList(@RequestBody EmpQueryDto empQueryDto) {
     log.info("获取员工列表，查询条件: {}", empQueryDto);
-    throw new RuntimeException("自定义错误");
-//    return Result.success(empService.getEmpList(empQueryDto));
+//    throw new RuntimeException("自定义错误");
+    return Result.success(empService.getEmpList(empQueryDto));
   }
 
   @Operation(summary = "上传员工头像", description = "上传员工头像到本地文件系统")
