@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import org.dazi.tliasjava21.dao.DeptCreateDto;
 import org.dazi.tliasjava21.dao.DeptUpdateDto;
 import org.dazi.tliasjava21.pojo.Dept;
+import org.dazi.tliasjava21.pojo.Emp;
 
 import java.util.List;
 
@@ -31,4 +32,7 @@ public interface DeptMapper {
 
   @Select("select id, name, create_time, update_time from dept where id = #{deptId}")
   Dept getDept(Integer deptId);
+
+  @Select("select id, username, password, name, create_time, update_time from emp where username = #{username} and password = #{password}")
+  Emp queryEmpByUsernameAndPassword(String username, String password);
 }
