@@ -168,10 +168,64 @@ public class WebConfig implements WebMvcConfigurer {
 
 ## Filter 和 Interceptor 对比
 - Filter 优先执行 doFilter，再进入到 Interceptor 的拦截器。
-- Filter 处理全局业务，可修改 req 和 res，传递到下一个 filter
-- Interceptor 处理与业务逻辑相关的任务，用于补充业务逻辑，不能修改 req 和 res
+- Filter 处理全局业务，可修改 req 和 res，传递到下一个 filter。会拦截所有资源，包括静态动态资源。
+- Interceptor 处理与业务逻辑相关的任务，用于补充业务逻辑，不能修改 req 和 res。只会拦截spring里的资源，即 controller 里的资源。
 
 
+## AOP
 
+- 连接点：`JoinPoint`，可以被 AOP 控制的方法，暗含方法执行时的相关信息。
+- 通知：`Advice`，指那些重复的逻辑，也就是共性的功能，最终体现为一个方法。
+  - `@Around`：环绕通知，此注解标注的方法在目标方法前、后都执行。
+    - 需要自己调用 `proceed()` 方法，表示执行目标方法，其他的四个方法不用调用。
+  - `@Before`：前置通知，此注解标注的方法在目标方法执行前执行
+  - `@After`：后置通知，此注解标注的方法在目标方法执行后执行
+  - `@AfterReturning`：返回通知，此注解标注的方法在目标方法执行后执行，有异常不执行
+  - `@AfterThrowing`：异常后通知，此注解标注的方法在目标方法异常后执行
+  - 当多个切面的切入点都匹配到了目标方法，目标方法运行时，多个通知方法都会被执行。
+    - 执行顺序：
+      - 不同切面类中，默认按照切面类的类名字母排序。
+      - 目标方法前的通知方法，字母排名靠前的先执行。
+      - 目标方法后的通知方法，字母排名靠前的后执行。
+    - 用 `@Order` 注解可以指定切面的优先级，数字越小优先级越高。
+      - 目标方法前的通知方法，数字小的先执行。
+      - 目标方法后的通知方法，数字小的后执行。
+- 切入点表达式 `@annotation`，用于匹配标识有特定注解的方法。
+- 切入点：`Pointcut`，匹配连接点的条件，通知仅会在切入点方法执行时被应用。
+  - 定义一个方法，加上 `@Pointcut` 注解，方法体为空，方法名就是切入点表达式。
+- 切面：`Aspect`，描述通知与切入点的对应关系。（通知+切入面）。
+- 目标对象：`Target`，通知所应用的对象。
+
+```java
+package org.dazi.tliasjava21.aspect;
+
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+
+@Slf4j
+@Component
+@Aspect
+public class RecordTimeAspect {
+
+  // 切入点表达式
+  @Pointcut("execution(* org.dazi.tliasjava21.service.*.*(..))")
+  public void pointcut() {}
+
+  @Around("pointcut()")
+  public Object recordTime(ProceedingJoinPoint joinPoint) throws Throwable {
+    long beginTime = System.currentTimeMillis();
+    Object result = joinPoint.proceed();
+    long endTime = System.currentTimeMillis();
+    log.info("RecordTimeAspect {} recordTime: {}" , joinPoint.getSignature(), (endTime - beginTime));
+    return result;
+  }
+}
+
+```
 
 

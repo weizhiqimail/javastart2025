@@ -3,6 +3,7 @@ package org.dazi.tliasjava21.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.dazi.tliasjava21.anno.LogAnnotation;
 import org.dazi.tliasjava21.dao.EmpQueryDto;
 import org.dazi.tliasjava21.dao.EmpWithDeptAndExpr;
 import org.dazi.tliasjava21.mapper.EmpMapper;
@@ -32,6 +33,7 @@ public class EmpServiceImpl implements EmpService {
 //  }
 
   //    基于 PageHelper 分页
+  @LogAnnotation
   @Override
   public PageResult<EmpWithDeptAndExpr> getEmpList(EmpQueryDto empQueryDto) {
     int pageSize = empQueryDto.pageSize != null ? empQueryDto.pageSize : 10;
