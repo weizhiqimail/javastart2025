@@ -184,7 +184,10 @@ public @interface ComponentScan { }
   - Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3
   - Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:3.0.3
 
-
+- 示例：创建 aliyun-oss-spring-boot-starter
+  - 创建 aliyun-oss-spring-boot-starter 模块。
+  - 创建 aliyun-oss-spring-boot-starter-autoconfigure 模块，在 starter 模块里引入该模块。
+  - 在 aliyun-oss-spring-boot-autoconfigure 模块中的定义自动配置功能，并定义自动配置文件 `META-INF/spring/xxxx.imports`。
 
 
 

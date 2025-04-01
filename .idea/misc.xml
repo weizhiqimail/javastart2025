@@ -9,10 +9,21 @@
         <option value="$PROJECT_DIR$/springboot-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/tlias/pom.xml" />
         <option value="$PROJECT_DIR$/tliasjava21/pom.xml" />
+        <option value="$PROJECT_DIR$/qiniu-oss-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/qiniu-oss-spring-boot-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/dazi-oss-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/dazi-oss-spring-boot-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/zida-oss-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/zida-oss-spring-boot-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/zida-oss-spring-boot-test/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/dazi-oss-spring-boot-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/dazi-oss-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/qiniu-oss-spring-boot-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/qiniu-oss-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/tlias/pom.xml" />
       </set>

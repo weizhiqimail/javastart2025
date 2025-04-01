@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: zida-oss-spring-boot-test
+
+aliyun:
+  oss:
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    bucketName: dazitemptest
+    region: oss-cn-shanghai

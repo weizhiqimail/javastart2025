@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="qiniu-oss-spring-boot-autoconfig" />
+        <module name="zida-oss-spring-boot-autoconfig" />
+        <module name="zida-oss-spring-boot-starter" />
         <module name="java-maven" />
       </profile>
-      <profile name="Annotation profile for tliasjava21" enabled="true">
+      <profile name="Annotation profile for zida-oss-spring-boot-test" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -17,19 +20,31 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="tliasjava21" />
+        <module name="zida-oss-spring-boot-test" />
         <module name="java-springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dazi-oss-spring-boot-autoconfig" target="21" />
+      <module name="dazi-oss-spring-boot-starter" target="21" />
+      <module name="qiniu-oss-spring-boot-autoconfig" target="21" />
+      <module name="qiniu-oss-spring-boot-starter" target="17" />
       <module name="springboot-mybatis" target="17" />
       <module name="tlias" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dazi-oss-spring-boot-autoconfig" options="-parameters" />
+      <module name="dazi-oss-spring-boot-starter" options="-parameters" />
       <module name="java-springboot" options="-parameters" />
+      <module name="qiniu-oss-spring-boot-autoconfig" options="-parameters" />
+      <module name="qiniu-oss-spring-boot-starter" options="-parameters" />
       <module name="springboot-mybatis" options="-parameters" />
       <module name="tliasjava21" options="-parameters" />
+      <module name="zida-oss-spring-boot-autoconfig" options="-parameters" />
+      <module name="zida-oss-spring-boot-starter" options="-parameters" />
+      <module name="zida-oss-spring-boot-test" options="-parameters" />
     </option>
   </component>
 </project>

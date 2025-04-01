@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/dazi-oss-spring-boot-autoconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dazi-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-maven/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-maven/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java-springboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qiniu-oss-spring-boot-autoconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/qiniu-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-mybatis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ioclass/gbkFile.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/ioclass/gbkFile2.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/tlias/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tlias/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tliasjava21/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zida-oss-spring-boot-autoconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zida-oss-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zida-oss-spring-boot-test/src/main/java" charset="UTF-8" />
   </component>
 </project>
