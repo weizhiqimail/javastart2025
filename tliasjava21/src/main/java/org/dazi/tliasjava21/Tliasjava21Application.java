@@ -18,5 +18,3 @@ public class Tliasjava21Application {
     SpringApplication.run(Tliasjava21Application.class, args);
   }
 }
-
-class A

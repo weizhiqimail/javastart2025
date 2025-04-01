@@ -321,6 +321,3 @@ public class AuthController {
   
 }
 ```
-
-# 原理篇
-
