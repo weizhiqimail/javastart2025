@@ -225,7 +225,102 @@ public class RecordTimeAspect {
     return result;
   }
 }
-
 ```
 
+
+## 配置优先级
+
+- `application.properties` > `application.yml` > `application-{profile}.properties` > `application-{profile}.yml`
+- `application.properties.yml` > `application.properties.yaml`
+
+## 配置的内容
+- 除了支持配置文件的配置属性，还只是 Java 系统属性和命令行参数的方式进行属性配置。
+- Springboot 应用里，命令行参数优先级高于 Java 系统属性。
+
+```text
+Java 系统属性
+-Dserver.port=9000
+
+jar 包的命令行参数
+--server.port=10000
+```
+
+## 打包
+
+- 运行 jar 包：`java -Dserver.port=9000 -jar xxx.jar --server.port=10000`
+
+## bean 作用域 `@Scope`
+
+Spring 支持五种作用域，后三种在 web 环境才生效
+
+- singleton：单例，默认值，Spring 容器只会创建一个实例。
+  - `@Lazy` 延迟初始化，等加载时才创建。
+  - `@Scope("singleton")`，单例，默认，在项目启动时创建。容器关闭时使用 `@PreDestroy` 注解的方法销毁。
+    - 如果是有状态的 bean，即有可变成员变量，那么线程不安全，需要自行处理线程安全问题，比如加锁、ThreadLocal 等。
+    - 如果是无状态的 bean，也就是每一次调用后，数据都是同一份，不会有任何数据变化，对应就是线程安全的。
+- prototype：多例，每次请求都会创建一个新的实例。
+  -  `@Scope("prototype")`，多例，如果要有数据状态变化，就用多例。每一个线程获取的是独立的实例，天然隔离状态，线程安全。如果多个线程共享同一个实例，仍然可能不安全。
+  - 需要手动清理资源（如数据库连接）。
+- request：请求，每次请求都会创建一个新的实例，作用域是 HTTP 请求。
+- session：会话，每次会话都会创建一个新的实例，作用域是 HTTP 会话。
+- application：应用，每个应用返回内创建新的示例。
+
+## 管理第三方的 bean
+- 在启动类里添加一个方法，用来 new 一个新的 class，并用 `@Bean` 注解，表示一个 bean 的定义，方法名就是 bean 的名称。
+- 不建议使用 `@Bean` 这种方式来管理第三方的 bean，因为这样会导致 bean 的生命周期和 Spring 容器不一致。
+- 使用配置类来管理第三方的 bean，使用 `@Configuration` 注解标注类，表示这是一个配置类。
+
+```java
+// 在启动类里管理第三方类
+@SpringBootApplication
+public class Tliasjava21Application {
+
+  public static void main(String[] args) {
+    SpringApplication.run(Tliasjava21Application.class, args);
+  }
+
+  @Bean
+  // 其实在这里，是给 AliyunOSSProperties 省略了一个 @Autowired 注解。
+  public AliyunOSSOperator aliyunOSSOperator(AliyunOSSProperties aliyunOSSProperties) {
+    return new AliyunOSSOperator(aliyunOSSProperties);
+  }
+}
+
+// 给第三方类添加 @Configuration 注解
+@Configuration
+class AliyunOSSOperator {
+  // 这里之前时使用 @Autowired 注入的，现在使用 @Bean 后，就不能使用 @Autowired 注入了
+  // 需要定义一个构造函数，通过参数的形式传入
+  // @Autowired
+  private AliyunOSSProperties aliyunOSSProperties;
+
+  public AliyunOSSOperator (AliyunOSSOperator aliyunOSSProperties) {
+    this.aliyunOSSProperties = aliyunOSSProperties;
+  }
+}
+```
+
+
+## 获取 IOC 容器中的 bean
+
+```java
+package org.dazi.tliasjava21.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AuthController {
+  @Autowired
+  private ApplicationContext applicationContext;
+  
+  public void test() {
+    
+  }
+  
+}
+```
+
+# 原理篇
 

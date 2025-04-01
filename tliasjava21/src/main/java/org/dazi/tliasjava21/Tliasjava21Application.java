@@ -1,9 +1,11 @@
 package org.dazi.tliasjava21;
 
+import org.dazi.tliasjava21.utils.AliyunOSSProperties;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
 
 
 // 为 Filter 服务
@@ -15,5 +17,6 @@ public class Tliasjava21Application {
   public static void main(String[] args) {
     SpringApplication.run(Tliasjava21Application.class, args);
   }
-
 }
+
+class A
