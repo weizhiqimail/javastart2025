@@ -2,7 +2,7 @@
 
 ## Springboot 核心 - 起步依赖
 
-各种 starter
+**各种 starter**
 
 - spring-boot-starter-parent，父级 pom，提供了默认的依赖版本。
 - spring-boot-starter-web，web 相关的依赖。
@@ -103,6 +103,7 @@ public class GsonAutoConfiguration {
 
 
 #### 代码继承逻辑
+
 - 入口，启动类 `class JavaSpringbootApplication`
 
 ```java
@@ -147,6 +148,7 @@ public @interface SpringBootConfiguration { }
   - `@Import(AutoConfigurationImportSelector.class)`
     - `public class AutoConfigurationImportSelector implements DeferredImportSelector {}`
       - `public interface DeferredImportSelector extends ImportSelector {}`
+
 ```java
 @Inherited
 @AutoConfigurationPackage
@@ -174,6 +176,14 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector {
 @Repeatable(ComponentScans.class)
 public @interface ComponentScan { }
 ```
+
+## 自定义 starter
+
+- 自定义 starter 里，会定义一些公共组件，提供给各个项目团队使用。包含起步依赖和自动配置的功能。
+- 以 MyBatis 为例，引入 `starter` 依赖即可。
+  - Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3
+  - Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:3.0.3
+
 
 
 
