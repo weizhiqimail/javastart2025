@@ -8,7 +8,6 @@ class SinglyNode {
     this.data = data;
     this.next = null;
   }
-
 }
 
 public class SinglyLinkedList {
