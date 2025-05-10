@@ -1,10 +1,10 @@
 package org.zida;
 
-class Node {
+class SinglyNode {
   public int data;
-  public Node next;
+  public SinglyNode next;
 
-  public Node(int data) {
+  public SinglyNode(int data) {
     this.data = data;
     this.next = null;
   }
@@ -12,7 +12,7 @@ class Node {
 }
 
 public class SinglyLinkedList {
-  public Node head;
+  public SinglyNode head;
   public int size;
   public int capacity;
 
@@ -43,7 +43,7 @@ public class SinglyLinkedList {
     return this.capacity == this.size;
   }
 
-  Node getHeadNode() {
+  SinglyNode getHeadNode() {
     if (this.isEmpty()) {
       System.out.println("获取链表的头节点，当前链表为空。");
       return null;
@@ -51,13 +51,13 @@ public class SinglyLinkedList {
     return this.head;
   }
 
-  Node getLastNode() {
+  SinglyNode getLastNode() {
     if (this.isEmpty()) {
       System.out.println("获取链表的头节点，当前链表为空。");
       return null;
     }
 
-    Node currentNode = this.head;
+    SinglyNode currentNode = this.head;
 
     while (currentNode.next != null) {
       currentNode = currentNode.next;
@@ -72,7 +72,7 @@ public class SinglyLinkedList {
       return 0;
     }
 
-    Node newNode = new Node(data);
+    SinglyNode newNode = new SinglyNode(data);
 
     newNode.next = this.head;
     this.head = newNode;
@@ -87,11 +87,11 @@ public class SinglyLinkedList {
       return 0;
     }
 
-    Node newNode = new Node(data);
+    SinglyNode newNode = new SinglyNode(data);
 
     newNode.next = null;
 
-    Node lastNode = this.getLastNode();
+    SinglyNode lastNode = this.getLastNode();
 
     if (lastNode != null) {
       lastNode.next = newNode;
@@ -109,7 +109,7 @@ public class SinglyLinkedList {
       return 0;
     }
 
-    Node currentNode = this.head;
+    SinglyNode currentNode = this.head;
 
     if (currentNode.data == data) {
       this.head = currentNode.next;
@@ -119,7 +119,7 @@ public class SinglyLinkedList {
 
     while(currentNode != null){
       if (currentNode.next.data == data) {
-        Node tempNode = currentNode.next;
+        SinglyNode tempNode = currentNode.next;
         currentNode.next = tempNode.next;
         this.size--;
         return 1;
@@ -138,7 +138,7 @@ public class SinglyLinkedList {
       return;
     }
 
-    Node currentNode = this.head;
+    SinglyNode currentNode = this.head;
     System.out.printf("开始遍历链表：[ ");
     while (currentNode!=null) {
       System.out.printf("%d ", currentNode.data);
