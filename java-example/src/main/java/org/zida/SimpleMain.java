@@ -76,7 +76,7 @@ class Phone extends Appliance implements Chargeable {
 
 }
 
-public class Main {
+public class SimpleMain {
   public static void main(String[] args) {
     Computer c1 = new Computer("戴尔");
     c1.turnOn();

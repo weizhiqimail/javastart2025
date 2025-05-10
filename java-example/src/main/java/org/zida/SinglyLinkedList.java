@@ -1,0 +1,155 @@
+package org.zida;
+
+class Node {
+  public int data;
+  public Node next;
+
+  public Node(int data) {
+    this.data = data;
+    this.next = null;
+  }
+
+}
+
+public class SinglyLinkedList {
+  public Node head;
+  public int size;
+  public int capacity;
+
+  SinglyLinkedList(int capacity) {
+    if (capacity <= 0) {
+      System.out.println("单链表的容量不能为空");
+      return;
+    }
+    this.head = null;
+    this.size = 0;
+    this.capacity = capacity;
+  }
+
+  int getSize() {
+    return this.size;
+  }
+
+
+  int getCapacity() {
+    return this.capacity;
+  }
+
+  boolean isEmpty() {
+    return this.size == 0;
+  }
+
+  boolean isFull() {
+    return this.capacity == this.size;
+  }
+
+  Node getHeadNode() {
+    if (this.isEmpty()) {
+      System.out.println("获取链表的头节点，当前链表为空。");
+      return null;
+    }
+    return this.head;
+  }
+
+  Node getLastNode() {
+    if (this.isEmpty()) {
+      System.out.println("获取链表的头节点，当前链表为空。");
+      return null;
+    }
+
+    Node currentNode = this.head;
+
+    while (currentNode.next != null) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+
+  // 从头节点添加元素
+  int addNodeFromHead(int data) {
+    if (this.isFull()) {
+      System.out.println("从头节点添加元素，当前链表已满，不能添加新元素。");
+      return 0;
+    }
+
+    Node newNode = new Node(data);
+
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size++;
+    return 1;
+  }
+
+  // 从尾节点添加元素
+  int addNodeFromTail(int data) {
+    if (this.isFull()) {
+      System.out.println("从尾节点添加元素，当前链表已满，不能添加新元素。");
+      return 0;
+    }
+
+    Node newNode = new Node(data);
+
+    newNode.next = null;
+
+    Node lastNode = this.getLastNode();
+
+    if (lastNode != null) {
+      lastNode.next = newNode;
+    } else {
+      this.head = newNode;
+    }
+    this.size++;
+    return 1;
+  }
+
+  // 删除某个节点
+  int removeNode(int data) {
+    if (this.isEmpty()) {
+      System.out.println("当前链表为空，不能删除节点。");
+      return 0;
+    }
+
+    Node currentNode = this.head;
+
+    if (currentNode.data == data) {
+      this.head = currentNode.next;
+      this.size--;
+      return 1;
+    }
+
+    while(currentNode != null){
+      if (currentNode.next.data == data) {
+        Node tempNode = currentNode.next;
+        currentNode.next = tempNode.next;
+        this.size--;
+        return 1;
+      }
+      currentNode = currentNode.next;
+    }
+    System.out.printf("未找到值为 %d 的节点，删除失败。\n", data);
+    return 0;
+
+  }
+
+  // 遍历链表
+  void traverse() {
+    if (this.isEmpty()) {
+      System.out.println("当前链表为空，无需遍历。");
+      return;
+    }
+
+    Node currentNode = this.head;
+    System.out.printf("开始遍历链表：[ ");
+    while (currentNode!=null) {
+      System.out.printf("%d ", currentNode.data);
+      currentNode = currentNode.next;
+    }
+    System.out.printf("] 长度: %d\n", this.size);
+  }
+
+}
+
+
+
+
+
