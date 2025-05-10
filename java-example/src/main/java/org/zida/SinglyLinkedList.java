@@ -19,6 +19,9 @@ public class SinglyLinkedList {
   SinglyLinkedList(int capacity) {
     if (capacity <= 0) {
       System.out.println("单链表的容量不能为空");
+      this.capacity = 0;
+      this.head = null;
+      this.size = 0;
       return;
     }
     this.head = null;
@@ -29,7 +32,6 @@ public class SinglyLinkedList {
   int getSize() {
     return this.size;
   }
-
 
   int getCapacity() {
     return this.capacity;
@@ -51,9 +53,9 @@ public class SinglyLinkedList {
     return this.head;
   }
 
-  SinglyNode getLastNode() {
+  SinglyNode getTailNode() {
     if (this.isEmpty()) {
-      System.out.println("获取链表的头节点，当前链表为空。");
+      System.out.println("获取链表的尾节点，当前链表为空。");
       return null;
     }
 
@@ -91,7 +93,7 @@ public class SinglyLinkedList {
 
     newNode.next = null;
 
-    SinglyNode lastNode = this.getLastNode();
+    SinglyNode lastNode = this.getTailNode();
 
     if (lastNode != null) {
       lastNode.next = newNode;
@@ -117,18 +119,35 @@ public class SinglyLinkedList {
       return 1;
     }
 
-    while(currentNode != null){
-      if (currentNode.next.data == data) {
-        SinglyNode tempNode = currentNode.next;
-        currentNode.next = tempNode.next;
+    while (currentNode != null && currentNode.next != null) {
+      if ( currentNode.next.data == data) {
+        currentNode.next = currentNode.next.next;
         this.size--;
         return 1;
       }
+
       currentNode = currentNode.next;
     }
     System.out.printf("未找到值为 %d 的节点，删除失败。\n", data);
     return 0;
 
+  }
+
+  // 查找节点
+  SinglyNode findNode(int data) {
+    if (this.isEmpty()) {
+      System.out.println("当前链表为空，不能查找元素。");
+      return null;
+    }
+
+    SinglyNode currentNode = this.head;
+    while (currentNode != null) {
+      if (currentNode.data == data) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+    return null;
   }
 
   // 遍历链表
@@ -140,13 +159,12 @@ public class SinglyLinkedList {
 
     SinglyNode currentNode = this.head;
     System.out.printf("开始遍历链表：[ ");
-    while (currentNode!=null) {
+    while (currentNode != null) {
       System.out.printf("%d ", currentNode.data);
       currentNode = currentNode.next;
     }
     System.out.printf("] 长度: %d\n", this.size);
   }
-
 }
 
 
