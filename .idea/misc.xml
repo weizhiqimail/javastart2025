@@ -17,6 +17,8 @@
         <option value="$PROJECT_DIR$/zida-oss-spring-boot-autoconfig/pom.xml" />
         <option value="$PROJECT_DIR$/zida-oss-spring-boot-test/pom.xml" />
         <option value="$PROJECT_DIR$/java-example/pom.xml" />
+        <option value="$PROJECT_DIR$/java-servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/java-basic/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

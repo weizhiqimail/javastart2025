@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="qiniu-oss-spring-boot-autoconfig" />
-        <module name="zida-oss-spring-boot-autoconfig" />
-        <module name="zida-oss-spring-boot-starter" />
         <module name="java-maven" />
         <module name="java-example" />
+        <module name="qiniu-oss-spring-boot-autoconfig" />
+        <module name="zida-oss-spring-boot-autoconfig" />
+        <module name="java-basic" />
+        <module name="zida-oss-spring-boot-starter" />
+        <module name="java-servlet" />
       </profile>
       <profile name="Annotation profile for zida-oss-spring-boot-test" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
