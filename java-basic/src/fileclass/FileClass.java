@@ -8,11 +8,13 @@ import java.nio.file.Files;
 public class FileClass {
 
   public static String READ_DIR_PATH = "D:\\program\\javastart2025\\src";
-  public static String READ_FILE_PATH = "D:\\program\\javastart2025\\src\\fileclass\\FileClass.java";
-  public static String CREATE_FILE_PATH = "D:\\program\\javastart2025\\src\\fileclass\\FileClassCreate.txt";
+  public static String READ_FILE_PATH = "D:\\program\\javastart2025\\java-basic\\src\\fileclass\\FileClass.java";
+
+  public static String CREATE_FILE_PATH = "D:\\program\\javastart2025\\java-basic\\src\\fileclass\\FileClassCreate.txt";
 
   public static void main(String[] args) throws IOException {
-    readDirectory();
+//    readDirectory();
+    readFile();
   }
 
   // 读取文件的元数据

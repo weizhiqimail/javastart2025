@@ -1,5 +1,7 @@
 package enumclass;
 
+import lombok.Getter;
+
 /**
  * 枚举类都是 final class
  * <p>
@@ -7,19 +9,23 @@ package enumclass;
  * 枚举类的构造器都是私有的，不能对外创建对象。
  * 如果枚举里只有一个常量，那么就是单例类
  */
+@Getter
 public enum ColorType {
 
-  RED("RED", 1),
-  GREEN("GREEN", 2),
-  BLUE("BLUE", 3);
+  RED("RED", 1, "a"),
+  GREEN("GREEN", 2, "b"),
+  BLUE("BLUE", 3, "c");
 
-  private String color;
+  private final String color;
 
-  private int id;
+  private final int id;
 
-  ColorType(String color, int id) {
+  private final String str;
+
+  ColorType(String color, int id, String str) {
     this.color = color;
     this.id = id;
+    this.str = str;
   }
 
 }

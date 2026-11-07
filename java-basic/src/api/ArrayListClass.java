@@ -1,10 +1,19 @@
 package api;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ArrayListClass {
 
   public static void main(String[] args) {
+
+    ArrayList<Number> yearList = new ArrayList<>(List.of(1, 2, 3));
+    List<Integer> yearList2 = Stream.of(1, 2, 3).collect(Collectors.toList());
+    List<Integer> yearList3 = Stream.of(1, 2, 3).toList();
+
+
 
     ArrayList<String> companyList = new ArrayList<String>();
     companyList.add("Google");

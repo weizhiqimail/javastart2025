@@ -5,6 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/da-oss-spring-boot-starter" />
+        <option name="gradleJvm" value="26" />
       </GradleProjectSettings>
     </option>
   </component>
